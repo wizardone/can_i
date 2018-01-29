@@ -1,6 +1,17 @@
 # CanI
 
-**TODO: Add description**
+Simple authorization system for Elixir based applications.
+
+Define your abilities like so:
+
+```elixir
+# Add abilities
+CanI.abilities(:read, fn(user) -> user.regular? end)
+CanI.abilities(:delete, fn(user) -> user.admin? end)
+
+CanI.abilities
+#=> [{:read, function}, {:delete, function}]
+```
 
 ## Installation
 

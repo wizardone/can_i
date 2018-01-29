@@ -3,16 +3,11 @@ defmodule CanI do
   Documentation for CanI.
   """
 
-  @doc """
-  Hello world.
+  def abilities(ability, func) do
 
-  ## Examples
+  end
 
-      iex> CanI.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def abilities do
+    
   end
 end
