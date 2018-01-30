@@ -2,7 +2,12 @@ defmodule CanITest do
   use ExUnit.Case
   doctest CanI
 
-  test "greets the world" do
-    assert CanI.hello() == :world
+  setup do
+    CanI.start_link
+    :ok
+  end
+
+  test "abilities" do
+    assert CanI.abilities == %{}
   end
 end
