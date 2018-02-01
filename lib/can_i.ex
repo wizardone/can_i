@@ -8,7 +8,7 @@ defmodule CanI do
   end
 
   def abilities(ability, func) do
-
+    Agent.update(__MODULE__, fn abilities -> Map.put(abilities, ability, func) end)
   end
 
   def abilities do
