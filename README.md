@@ -6,8 +6,8 @@ Define your abilities like so:
 
 ```elixir
 # Add abilities
-CanI.abilities(:read, fn(user) -> user.regular? end)
-CanI.abilities(:delete, fn(user) -> user.admin? end)
+CanI.register(:read, fn(user) -> user.regular? end)
+CanI.register(:delete, fn(user) -> user.admin? end)
 
 CanI.abilities
 #=> [{:read, function}, {:delete, function}]
@@ -29,4 +29,3 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/can_i](https://hexdocs.pm/can_i).
-

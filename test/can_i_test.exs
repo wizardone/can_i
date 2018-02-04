@@ -11,14 +11,21 @@ defmodule CanITest do
     assert CanI.abilities == %{}
   end
 
-  test "abilities addition" do
+  test "register addition" do
     func1 = fn -> true end
     func2 = fn -> false end
 
-    CanI.abilities(:delete, func1)
+    CanI.register(:delete, func1)
     assert CanI.abilities == %{delete: func1}
 
-    CanI.abilities(:read, func2)
+    CanI.register(:read, func2)
     assert CanI.abilities == %{delete: func1, read: func2}
+  end
+
+  test "retrieve abilities" do
+    func = fn -> true end
+    CanI.register(:insert, func)
+
+    assert CanI.abilities == %{insert: func}
   end
 end

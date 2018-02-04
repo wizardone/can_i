@@ -7,7 +7,7 @@ defmodule CanI do
     Agent.start_link(fn -> %{} end, name: __MODULE__)
   end
 
-  def abilities(ability, func) do
+  def register(ability, func) do
     Agent.update(__MODULE__, fn abilities -> Map.put(abilities, ability, func) end)
   end
 
