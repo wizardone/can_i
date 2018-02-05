@@ -1,4 +1,5 @@
 # CanI
+[![Build Status](https://travis-ci.org/wizardone/can_i.svg?branch=master)](https://travis-ci.org/wizardone/can_i)
 
 Simple authorization system for Elixir based applications.
 
@@ -6,8 +7,11 @@ Define your abilities like so:
 
 ```elixir
 # Add abilities
-CanI.register(:read, fn(user) -> user.regular? end)
-CanI.register(:delete, fn(user) -> user.admin? end)
+CanI.register(:read, fn user -> user.regular? end)
+CanI.register(:delete, fn user -> user.admin? end)
+
+# Add multiple abilities
+CanI.register([:insert, :delete], fn user -> user.admin? end)
 
 CanI.abilities
 #=> [{:read, function}, {:delete, function}]
