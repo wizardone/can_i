@@ -35,4 +35,18 @@ defmodule CanITest do
 
     assert CanI.abilities == %{insert: func}
   end
+
+  test "check abilities without arguments" do
+    CanI.register(:insert, fn -> true end)
+    CanI.register(:delete, fn -> false end)
+
+    assert CanI.check_abilities(:insert) == true
+    assert CanI.check_abilities(:delete) == false
+  end
+
+  test "check abilities with arguments" do
+    #CanI.register(:insert, fn(user) -> user.admin? end)
+
+    #assert CanI.check_abilities(:insert, user) == true
+  end
 end

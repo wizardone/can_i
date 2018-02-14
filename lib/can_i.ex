@@ -20,4 +20,12 @@ defmodule CanI do
   def abilities do
     Agent.get(__MODULE__, fn state -> state end)
   end
+
+  def check_abilities(ability, params) do
+    Map.get(abilities(), ability).(params)
+  end
+
+  def check_abilities(ability) do
+    Map.get(abilities(), ability).()
+  end
 end

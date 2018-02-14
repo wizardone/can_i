@@ -15,6 +15,10 @@ CanI.register([:insert, :delete], fn user -> user.admin? end)
 
 CanI.abilities
 #=> [{:read, function}, {:delete, function}]
+
+# Fetch a user record from a database
+CanI.check_ability(:delete, user)
+=> {:ok, user}
 ```
 
 ## Installation
