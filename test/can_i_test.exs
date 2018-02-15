@@ -45,8 +45,10 @@ defmodule CanITest do
   end
 
   test "check abilities with arguments" do
-    #CanI.register(:insert, fn(user) -> user.admin? end)
+    CanI.register(:insert, fn(map) -> Map.has_key?(map, :a) end)
+    CanI.register(:delete, fn(map) -> Map.has_key?(map, :c) end)
 
-    #assert CanI.check_abilities(:insert, user) == true
+    assert CanI.check_abilities(:insert, %{a: 1, b: 2}) == true
+    assert CanI.check_abilities(:delete, %{a: 1, b: 2}) == false
   end
 end
