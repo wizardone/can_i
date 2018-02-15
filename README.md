@@ -6,6 +6,8 @@ Simple authorization system for Elixir based applications.
 Define your abilities like so:
 
 ```elixir
+# Start the agent
+CanI.start_link
 # Add abilities
 CanI.register(:read, fn user -> user.regular? end)
 CanI.register(:delete, fn user -> user.admin? end)
@@ -18,7 +20,11 @@ CanI.abilities
 
 # Fetch a user record from a database
 CanI.check_ability(:delete, user)
-=> {:ok, user}
+=> true
+# Or if there are not arguments involved for the anonymous function
+CanI.register(:read, fn -> true end)
+CanI.check_abilities(:read)
+=> false
 ```
 
 ## Installation
