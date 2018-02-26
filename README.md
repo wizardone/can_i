@@ -18,11 +18,12 @@ CanI.register([:insert, :delete], fn user -> user.admin? end)
 CanI.abilities
 #=> [{:read, function}, {:delete, function}]
 
-# Fetch a user record from a database
+# Fetch a user record from a database that is supposed to be able to
+# delete records
 CanI.check_ability(:delete, user)
 => true
-# Or if there are not arguments involved for the anonymous function
-CanI.register(:read, fn -> true end)
+# Or if there are no arguments involved for the anonymous function
+CanI.register(:read, fn -> false end)
 CanI.check_abilities(:read)
 => false
 ```
