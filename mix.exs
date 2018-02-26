@@ -34,7 +34,7 @@ defmodule CanI.Mixfile do
       name: :can_i,
       maintainers: ["Stefan Slaveykov"],
       licenses: ["MiT"],
-      links: %{"GitHub" => "https://github.com/wizardone/cani.git"}
+      links: %{"GitHub" => "https://github.com/wizardone/can_i.git"}
     ]
   end
 
